@@ -1,0 +1,75 @@
+<%- include('../partials/links') %> 
+<%- include('../partials/nav') %> 
+
+<div class="container">
+  <h3>Add your story and Impact the World!</h3>
+
+  <div class="row">
+      <form method="POST" action = "<%-story.id %>" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="title" name="title" type="text" value="<%- story.title %> ">
+            <label for="title">Title</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field">
+              <select name="status" id="status">
+                  <option value="public" selected>Public</option>
+                  <option value="private">Private</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+              <h5>Impact the World here:</h5>
+              <textarea id="textarea" name='body' class="materialize-textarea"><%- story.body %> </textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <input type="submit" value="Save" class="btn">
+          <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+
+      </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+  $(document).ready(function(){
+    $('#status').formSelect();
+  });
+
+  CKEDITOR.replace('body')
+
+</script>
+
+<style>
+
+  .input-field input[type=text]:focus {
+      border-bottom: 1px solid white;
+      box-shadow: 0 1px 0 0 white;
+  }
+  
+  .input-field label {
+    font-size: 20px;
+  }
+  
+  body {
+    background-color: white;
+  }
+  
+  h3 {
+    color: #7f5539;
+    font-family: 'Satisfy', cursive;
+    margin-top: 100px;
+  }
+  
+  </style>

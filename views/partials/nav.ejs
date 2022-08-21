@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<nav class="brown">
+    <div class="nav-wrapper">
+        <a href="/dashboard" class="brand-logo center black-text">Impact the World</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+    <li><a href="/stories">Stories</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+
+<script>
+
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    })
+
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+    
+    body {
+        background-color: #adc178;
+    }
+
+    .nav-wrapper a {
+        font-size: 80px;
+        color: white;
+    }
+
+    .navig {
+        font-size: 25px;
+        font-family: 'Satisfy', cursive;
+    }
+
+    .brand-logo {
+        font-family: 'Satisfy', cursive;
+        color: #432818;
+        margin-top: 30px;
+    }
+
+    .hide-on-med-and-down li a {
+        font-family: 'Satisfy', cursive;
+        font-size: 25px;
+        margin-top: 8px;
+    }
+</style>
