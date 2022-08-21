@@ -1,0 +1,75 @@
+<%- include('../partials/links.ejs') %> 
+<%- include('../partials/nav.ejs') %>
+
+<title>Stories</title>
+<div class="container">
+    <h1 class="black-text">Stories</h1>
+
+    <div class="row">
+        <% if (stories.length > 0) { %>
+
+            <% stories.forEach(function(story) { %> 
+
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <!-- editBtn(story.user.id, id, story._id) This is the edit button I talked about in server.js --> 
+                            </div>
+                            <div class="card-content">
+                                <h5 class="card-title"><%- story.title %> </h5>
+                                <p><%-truncate(story.body, 150)%></p> <!--May be long, we need a helper here as well-->
+                                <br>
+                                <div class="chip">
+                                    <a href="/stories/user/<%- story.user.id %> "><%- story.user.displayName %> </a>
+                                </div>
+                                <br><br>
+                                <div class="card-action">
+                                    <a href="stories/<%-story._id %> " class="rectan btn brown">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <% })%>
+                <% } else { %>
+                    <p class="negat">No stories to display! Come back later...</p>
+                <% } %>
+
+    </div>
+</div>
+
+<style>
+    h1 {
+        color: #7f5539;
+        font-family: 'Satisfy', cursive;
+    }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
+
+    .rectan {
+        border-radius: 50px;
+        font-weight: bold;
+    }
+
+    .card-title {
+        font-family: 'Satisfy', cursive;
+        font-weight: bold;
+    }
+    body {
+        background-color: white;
+    }
+
+    .negat {
+        font-size: 20px;
+        font-weight: bold;
+        color: #adc178;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+</style>

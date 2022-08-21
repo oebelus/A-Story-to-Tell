@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="css/dashboard.css">
+<%- include('./partials/links.ejs') %> 
+<title>Dashboard</title>
+
+<%- include('./partials/nav.ejs') %>
+
+<div class="container">
+        
+        <h3>Welcome to your dashboard, <%= name %>  </h3>
+        <p>You may write all of your tales here, and most importantly, you can tell the world about them... </p>
+
+        <% if (stories.length > 0) { %>
+
+            <table class="responsive-table highlight centered">
+
+                <thead>
+                    <tr class="newcolor">
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th><span class="material-symbols-outlined">
+                            delete
+                            </span></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% stories.forEach(function(story) { %>
+                        <tr>
+                            <td><a href="/stories/<%-story._id%>"><%- story.title %></a></td>
+                            <td><%- moment(story.createdAt).format('MMMM Do YYYY, h:mm:ss a') %> </td>
+                            <td><span class = "dash-status"><%- story.status %> </span></td>
+                            <td>
+                                <form method="POST" action="/stories/<%-story._id %>" id="delete-form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="abtn btn brown">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %> 
+                </tbody>
+
+            </table>
+
+        <% } else{ %> 
+            <p>You didn't create any stories... Create your first one now!</p>
+        <% } %> 
+
+</div>
+
+<%- include('./partials/addButton.ejs') %> 
+
+<style>
+
+    h3 {
+        color: #7f5539;
+        font-family: 'Satisfy', cursive;
+        margin-top: 60px;
+        margin-top: 100px;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: bold;
+        color: #adc178;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    table {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    td a {
+        color: #7f5539;
+        font-weight: bold;
+        transition: 0.5;
+    }
+
+    td a:hover {
+        text-decoration: underline;
+    }
+
+    .newcolor {
+        color: #7f5539;
+        font-family: 'Satisfy', cursive;
+        font-size: 25px;
+        text-decoration: underline;
+    }
+
+    .abtn {
+        position: relative;
+        top: 5px;
+    }
+  
+</style>
