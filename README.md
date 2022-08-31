@@ -10,7 +10,7 @@ DashBoard:
 HomePage (Stories Panel):
 ![Desktop](https://github.com/oebelus/A-Story-to-Tell/blob/7217a3b2cce055e3683d09bed627e70ca1c01410/images/6.png)
 <br><br>
-
+<h5>Mobile Version</h5>
 Login       |  Dashboard |  HomePage
 :----------:|:----------:|:----------------
 ![](https://github.com/oebelus/A-Story-to-Tell/blob/7217a3b2cce055e3683d09bed627e70ca1c01410/images/4.png)  |  ![](https://github.com/oebelus/A-Story-to-Tell/blob/7217a3b2cce055e3683d09bed627e70ca1c01410/images/1.png) | ![](https://github.com/oebelus/A-Story-to-Tell/blob/7217a3b2cce055e3683d09bed627e70ca1c01410/images/2.png)
